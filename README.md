@@ -1,2 +1,3 @@
 # myapp
-docker learning
+This repo is made for docker learning.
+Practice for CI/CD

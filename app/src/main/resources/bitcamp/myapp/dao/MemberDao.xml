@@ -14,8 +14,8 @@
   </resultMap>
 
   <insert id="add" parameterType="Member">
-    insert into members(email,name,password,photo)
-    values(#{email},#{name},sha2(#{password},256),#{photo})
+    insert into members (email,name,password,photo)
+    values(#{email}, #{name}, #{password}, #{photo})
   </insert>
 
   <delete id="delete" parameterType="int">
@@ -55,7 +55,7 @@
       name=#{name},
       photo=#{photo}
     <if test="password != ''">
-      , password=sha2(#{password},256)
+      , password= #{password}
     </if>
     where
       member_no=#{no}
@@ -65,16 +65,30 @@
     select
       member_no,
       email,
+      password,
       name,
       created_date
     from
       members
     where
       email= #{email}
-      and password=sha2(#{password},256)
+      and password = #{password}
   </select>
 
   <select id="countAll" resultType="int">
     select count(*) from members;
   </select>
+  <select id="findByEmail" resultMap="MemberMap">
+    SELECT
+      member_no,
+      email,
+      password,
+      name,
+      created_date
+    FROM
+      members
+    WHERE
+      email=#{email}
+  </select>
+
 </mapper>

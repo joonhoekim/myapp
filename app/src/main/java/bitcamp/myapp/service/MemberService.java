@@ -18,4 +18,6 @@ public interface MemberService {
   int delete(int no);
 
   int countAll();
+
+  Member get(String email);
 }

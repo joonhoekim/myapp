@@ -52,4 +52,9 @@ public class DefaultMemberService implements MemberService {
   public int countAll() {
     return memberDao.countAll();
   }
+
+  @Override
+  public Member get(String email) {
+    return memberDao.findByEmail(email);
+  }
 }

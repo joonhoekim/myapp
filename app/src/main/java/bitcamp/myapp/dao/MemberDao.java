@@ -24,7 +24,8 @@ public interface MemberDao {
       @Param("email") String email,
       @Param("password") String password);
 
-  int countAll();
+  public Member findByEmail(
+      @Param("email") String email);
 
-  public Member findByEmail(String email);
+  int countAll();
 }

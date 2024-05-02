@@ -16,7 +16,9 @@
 
   <span data-th-if="${session.loginUser != null}"
         data-th-text="${session.loginUser.name}">홍길동</span>
-  <a data-th-href="@{/auth/logout}" data-th-if="${session.loginUser != null}" href="auth/logout">로그아웃</a>
+<!--  <a data-th-href="@{/auth/logout}" data-th-if="${session.loginUser != null}" href="auth/logout">로그아웃</a>-->
+  <a data-th-if="${session.loginUser != null}" href="logout" data-csrf-header="X-CSRF-TOKEN">로그아웃</a>
+
 
   <a data-th-href="@{/auth/form}" data-th-if="${session.loginUser == null}" href="auth/form">로그인</a>
 
